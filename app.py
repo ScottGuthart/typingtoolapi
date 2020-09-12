@@ -28,7 +28,7 @@ valid_levels = {1: [1, 2, 3, 4, 5, 6],
                  15: [0, 1],
                  16: [0, 1]}
 
-coef = genfromtxt('coefficients.csv')
+coef = genfromtxt('coefficients.csv', delimiter=',')
 print('Running with coef:', coef)
 
 @auth.verify_password
