@@ -38,7 +38,13 @@ def verify_password(username, password):
 def validate_request(r):
     response = ''
     for variable in valid_levels:
-        level = r.args.get(str(variable))
+        if type(r) == str:
+            if variable <= len(r):
+                level = r[variable-1]
+            else:
+                level = None
+        else:
+            level = r.args.get(str(variable))
         if level:
             if level.isnumeric:
                 level = int(level)
@@ -55,7 +61,9 @@ def validate_request(r):
     return response
 
 
-@app.route('/')
+@app.route('/<r>')
 #@auth.login_required
-def api():
-    return validate_request(request)
+def api(r=None):
+    if r is None:
+        return validate_request(request)
+    return validate_request(r)
