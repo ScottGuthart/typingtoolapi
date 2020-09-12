@@ -15,7 +15,7 @@ valid_levels = {1: [1, 2, 3, 4, 5, 6],
                  2: [1, 2, 3, 4, 5, 6],
                  3: [1, 2, 3, 4, 5, 6],
                  4: [0, 1],
-                 5: [1, 2, 3, 4, 5, 6],
+                 5: [0,1],
                  6: [1, 2, 3, 4, 5, 6],
                  7: [0, 1],
                  8: [0, 1],
@@ -54,10 +54,9 @@ def validate_request(r):
                     response += f'{level},'
                     values.append(level)
                 else:
-                    valid_level_str = " ".join(valid_v
                     response += (
-                        f'{variable}: must be in'+
-                        f'[{str(valid_levels[variable]).replace(",", "")}],'
+                        f'{level} not in valid lavels '+
+                        f'{str(valid_levels[variable]).replace(",", "")},'
                     )
             else:
                 response += f'{variable}: must be numeric,'
@@ -70,7 +69,6 @@ def validate_request(r):
 def get_segment(resp):
     resp.append(1)
     resp = np.array(resp)
-    print(resp)
     return (coef @ resp).argmax()+1
 
 
