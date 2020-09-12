@@ -16,6 +16,6 @@ def verify_password(username, password):
 
 
 @app.route('/')
-@auth.login_required
+#@auth.login_required
 def hello_world():
         return f'Hello, {auth.current_user()}'
