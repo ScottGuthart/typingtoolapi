@@ -10,12 +10,11 @@ WORKDIR /home/flaskapp
 COPY requirements.txt requirements.txt
 RUN python3 -m venv venv
 
-RUN venv/bin/pip install scipy
 RUN venv/bin/pip install cython
 RUN venv/bin/pip install gunicorn 
 RUN venv/bin/pip install -r requirements.txt
 
-COPY app.py config.py boot.sh ./
+COPY app.py boot.sh ./
 RUN chmod +x boot.sh
 
 ENV FLASK_APP app.py
