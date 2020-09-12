@@ -54,9 +54,10 @@ def validate_request(r):
                     response += f'{level},'
                     values.append(level)
                 else:
+                    valid_level_str = " ".join(valid_v
                     response += (
-                        f'{variable}: must be in
-                        [{" ".join(valid_levels[variable])}],'
+                        f'{variable}: must be in'+
+                        f'[{str(valid_levels[variable]).replace(",", "")}],'
                     )
             else:
                 response += f'{variable}: must be numeric,'
