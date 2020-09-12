@@ -29,6 +29,7 @@ valid_levels = {1: [1, 2, 3, 4, 5, 6],
                  16: [0, 1]}
 
 coef = genfromtxt('coefficients.csv')
+print('Running with coef:', coef)
 
 @auth.verify_password
 def verify_password(username, password):
@@ -37,6 +38,7 @@ def verify_password(username, password):
 
 def validate_request(r):
     response = ''
+    values = []
     for variable in valid_levels:
         if type(r) == str:
             if variable <= len(r):
@@ -50,6 +52,7 @@ def validate_request(r):
                 level = int(level)
                 if level in valid_levels[variable]:
                     response += f'{variable}={level},'
+                    values.append(level)
                 else:
                     response += (
                         f'{variable}: must be in {valid_levels[variable]},'
@@ -58,12 +61,25 @@ def validate_request(r):
                 response += f'{variable}: must be numeric,'
         else:
             response += f'{variable}: no data received,'
-    return response
+    if len(values) == len(valid_levels.keys()):
+        return values, response
+    return None, response
+
+def get_segment(resp):
+    resp.append(1)
+    resp = np.array(resp)
+    print(resp)
+    return (coef @ resp).argmax()+1
 
 
 @app.route('/<r>')
 #@auth.login_required
 def api(r=None):
     if r is None:
-        return validate_request(request)
-    return validate_request(r)
+        values, response = validate_request(request)
+    else:
+        values, response = validate_request(r)
+    if values:
+        return str(get_segment(values))
+    else:
+        return response
