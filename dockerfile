@@ -7,7 +7,7 @@ RUN apt-get install nano
 
 WORKDIR /home/flaskapp
 
-COPY requirementsROVER.txt requirements.txt
+COPY requirements.txt requirements.txt
 RUN python3 -m venv venv
 
 RUN venv/bin/pip install scipy
