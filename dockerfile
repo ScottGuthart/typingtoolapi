@@ -14,7 +14,7 @@ RUN venv/bin/pip install cython
 RUN venv/bin/pip install gunicorn 
 RUN venv/bin/pip install -r requirements.txt
 
-COPY app.py boot.sh ./
+COPY app.py boot.sh coefficients.csv ./
 RUN chmod +x boot.sh
 
 ENV FLASK_APP app.py
