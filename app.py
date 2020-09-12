@@ -51,11 +51,12 @@ def validate_request(r):
             if level.isnumeric:
                 level = int(level)
                 if level in valid_levels[variable]:
-                    response += f'{variable}={level},'
+                    response += f'{level},'
                     values.append(level)
                 else:
                     response += (
-                        f'{variable}: must be in {valid_levels[variable]},'
+                        f'{variable}: must be in
+                        [{" ".join(valid_levels[variable])}],'
                     )
             else:
                 response += f'{variable}: must be numeric,'
