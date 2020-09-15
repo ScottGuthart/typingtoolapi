@@ -1,0 +1,21 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+Flask	../app.py	/^from flask import Flask, request$/;"	kind:namespace	line:1
+HTTPBasicAuth	../app.py	/^from flask_httpauth import HTTPBasicAuth$/;"	kind:namespace	line:2
+api	../app.py	/^def api(r=None):$/;"	kind:function	line:77
+app	../app.py	/^app = Flask(__name__)$/;"	kind:variable	line:6
+app.py	../app.py	1;"	kind:file	line:1
+auth	../app.py	/^auth = HTTPBasicAuth()$/;"	kind:variable	line:7
+coef	../app.py	/^coef = genfromtxt('coefficients.csv', delimiter=',')$/;"	kind:variable	line:31
+genfromtxt	../app.py	/^from numpy import genfromtxt$/;"	kind:namespace	line:4
+get_segment	../app.py	/^def get_segment(resp):$/;"	kind:function	line:69
+np	../app.py	/^import numpy as np$/;"	kind:namespace	line:3
+request	../app.py	/^from flask import Flask, request$/;"	kind:namespace	line:1
+users	../app.py	/^users = {$/;"	kind:variable	line:9
+valid_levels	../app.py	/^valid_levels = {1: [1, 2, 3, 4, 5, 6],$/;"	kind:variable	line:14
+validate_request	../app.py	/^def validate_request(r):$/;"	kind:function	line:39
+verify_password	../app.py	/^def verify_password(username, password):$/;"	kind:function	line:35
