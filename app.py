@@ -72,7 +72,7 @@ def get_segment(resp):
     return (coef @ resp).argmax()+1
 
 
-@app.route('/<r>')
+@app.route('/t/<r>')
 #@auth.login_required
 def api(r=None):
     if r is None:
